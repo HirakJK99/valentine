@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+  <title>For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Cute Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page0">
+  <div class="box">
+    <h1 id="mainTitle">Hi, my Gugulu Baby 💕</h1>
+    <img id="mainGif" src="love.gif">
+    <h2 id="mainText">Are you ready to be my Valentine?</h2>
+
+    <img src="yes.png" class="btn" id="yesBtn" onclick="startLove()">
+    <img src="no.png" class="no-btn" id="noBtn" onclick="firstNoClick()">
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="box">
+    <h1>Rose Day 🌹</h1>
+    <img src="rose.gif">
+    <p>This rose is for you Bubu.. <br> Always ❤️</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="box">
+    <h1>Propose Day 💍</h1>
+    <img src="propose.gif">
+    <p> No long speech.. <br>You. Me. Sounds perfect 💖</p>
+    <h2> I LOVE YOU BABE </h2>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <div class="box">
+    <h1>Chocolate Day 🍫</h1>
+    <img src="chocolate.gif">
+    <h2> Sweet things don't last long... except my feelings for you Momo ❤️</h2>
+    <p>Chocolate is nice, but you're my favorite treat😌</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <div class="box">
+    <h1>Teddy Day 🧸</h1>
+    <img src="teddy.gif">
+    <h2> I am your everyday teddy 🐻</h2>
+    <p>Assigned by me 😌</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+  <div class="box">
+    <h1>Promise Day 🤞</h1>
+    <img src="promise.gif">
+    <h2> Just one,</h2>
+    <p>I’m yours and you're mine always 💞</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 7 -->
+<div class="page">
+  <div class="box">
+    <h1>Hug Day 🤗</h1>
+    <img src="hug.gif">
+    <p>Until I can hold you, this will do 🫂</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 8 -->
+<div class="page">
+  <div class="box">
+    <h1>Kiss Day 💋</h1>
+    <img src="kiss.gif">
+    <h2> Imagine it 😏</h2>
+    <p>Saving this one for when we meet 😘</p>
+    <img src="next.png" class="btn" onclick="nextPage()">
+  </div>
+</div>
+
+<!-- PAGE 9 FINAL -->
+<div class="page">
+  <div class="box">
+    <h1>Happy Valentine’s Day Gugulu 💕</h1>
+    <img src="kiss.gif">
+    <p>
+      Every page, every click…<br>
+      was just my way of saying<br>
+      you mean a lot to me 💗
+    </p>
+    <h2>Be my Valentine always 💌</h2>
+  </div>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+const music = document.getElementById('music');
+
+let noClicked = false; // first page No click tracker
+
+function firstNoClick() {
+  const mainGif = document.getElementById('mainGif');
+  const mainText = document.getElementById('mainText');
+  const noBtn = document.getElementById('noBtn');
+
+  if (!noClicked) {
+    // First click: change gif and text
+    mainGif.src = "no.gif"; // put your fun "No" gif here
+    mainText.innerText = "Pleaseeeee babyyyyy 🥺";
+    noClicked = true;
+  } else {
+    // Subsequent clicks: run away
+    runAway(noBtn);
+  }
+}
+
+function runAway(btn) {
+  btn.style.position = "absolute";
+  btn.style.top = Math.random() * 70 + "%";
+  btn.style.left = Math.random() * 70 + "%";
+}
+
+// Yes button: play music and go to next page
+function startLove() {
+  music.play();
+  nextPage();
+}
+
+function nextPage() {
+  pages[current].classList.remove('active');
+  current++;
+  pages[current].classList.add('active');
+}
+</script>
+
+</body>
+</html>
